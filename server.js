@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const db = require('./db/db.json')
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Middleware for parsing JSON and urlencoded form data
@@ -23,8 +24,13 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/notes.html'))
 );
 
+// route for a GET request that will return the content of `db.json` file
+app.get('/api', (req, res) =>
+  res.json(db)
+);
+
 app.listen(PORT, () => {
-    console.log(`App listening at http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
   });
 
   
