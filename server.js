@@ -33,35 +33,23 @@ app.get('/api/notes', (req, res) =>
   res.json(db)
 );
 
-// POST request
+// route for a POST request
 app.post('/api/notes', (req, res) => {
+    // creates id property in body, created by uuid 
     req.body.id = uuidv4();
     console.log(req.body);
+    // push new object to current db array
     db.push(req.body);
+    // create/overwrite json file with db array
     fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
         if (err) {
+            // response if error in making file
             console.log(err);
             return res.status(500).json(err);
         }
-
+        // response if no error
         return res.status(200).json(req.body);
     })
-
-    // Let the client know that their POST request was received
-    // res.json(`${req.method} request received`);
-  
-    // // Log our request to the terminal
-    // console.info(`${req.method} request received`);
-
-//     const { title, text } = req.body;
-
-//   // If all the required properties are present
-//   if (title && text) {
-//     // Variable for the object we will save
-//     const newNote = {
-//       title,
-//       text
-//     }
   });
 
 
