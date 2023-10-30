@@ -10,7 +10,7 @@ While developing this website, I learned about using Express.js, including how t
 
 Once viewing the website, you can clock the "Get Started" button to access your saved notes, along with input fields Title and Text for a new note. Click the Save icon to store your note to the JSON file on the backend. 
 
-[Link to Deployed Application](https://tabbdacat.github.io/note-taker/express.js/)
+[Link to Deployed Application](https://tabbdacat.github.io/note-taker-express.js/)
 
 ![image of deployed application](/public/assets/img/scrnsht-note-taker.jpg)
 
