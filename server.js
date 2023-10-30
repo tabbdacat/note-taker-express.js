@@ -52,6 +52,28 @@ app.post('/api/notes', (req, res) => {
     })
   });
 
+// route for a DELETE request
+app.delete('/api/notes/:id', (req, res) => {
+console.log(req.params.id);
+db.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    // fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
+    //     if (err) {
+    //         // response if error in making file
+    //         console.log(err);
+    //         return res.status(500).json(err);
+    //     }
+    //     // response if no error
+    //     return res.status(200).json(req.body);
+    // })
+    //     .then((deletedNote) => {
+    //     res.json(deletedNote);
+    //     })
+    //     .catch((err) => res.json(err));
+    });
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
