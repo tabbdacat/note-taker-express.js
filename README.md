@@ -4,7 +4,7 @@
 
 This application is a useful tool to store notes of your choosing to store items you need to complete, information you may need to access later, or whatever you wish to keep posted. 
 
-While developing this website, I learned about using Express.js, including how this framework can help build multi-page applications and manage servers. I gained experience working with processing GET, POST, and DELETE requests between the frontend and the backend.
+While developing this website, I learned about using Express.js, including how this framework can help build multi-page applications and manage servers. I gained experience working with processing GET and POST requests between the frontend and the backend.
 
 ## Usage
 

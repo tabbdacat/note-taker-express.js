@@ -4,7 +4,6 @@ const fs = require('fs');
 const db = require('./db/db.json');
 const { v4: uuidv4 } = require('uuid');
 
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -19,18 +18,18 @@ app.use(express.static('public'));
 
 // GET route for the homepage
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, 'public/index.html'))
 );
 
 // // GET route for the notes page
 app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/notes.html'))
+    res.sendFile(path.join(__dirname, 'public/notes.html'))
 );
 
 // route for a GET request that will return the content of `db.json` file
 app.get('/api/notes', (req, res) =>
 
-  res.json(db)
+    res.json(db)
 );
 
 // route for a POST request
@@ -50,33 +49,9 @@ app.post('/api/notes', (req, res) => {
         // response if no error
         return res.status(200).json(req.body);
     })
-  });
-
-// route for a DELETE request
-app.delete('/api/notes/:id', (req, res) => {
-console.log(req.params.id);
-db.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    // fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
-    //     if (err) {
-    //         // response if error in making file
-    //         console.log(err);
-    //         return res.status(500).json(err);
-    //     }
-    //     // response if no error
-    //     return res.status(200).json(req.body);
-    // })
-    //     .then((deletedNote) => {
-    //     res.json(deletedNote);
-    //     })
-    //     .catch((err) => res.json(err));
-    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
-  });
+});
 
-  
